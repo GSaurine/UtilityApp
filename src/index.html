@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrabalhoPA - Multi-Utility App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="auth-container"></div>
+    <div class="app-container">
+        <!-- Sidebar de Navegação -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>UtilityApp</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-btn active" data-target="todo">
+                    <i class="fas fa-list-check"></i> <span>To-Do List</span>
+                </button>
+                <button class="nav-btn" data-target="pomodoro">
+                    <i class="fas fa-clock"></i> <span>Pomodoro</span>
+                </button>
+                <button class="nav-btn" data-target="passgen">
+                    <i class="fas fa-key"></i> <span>Gerador de Senhas</span>
+                </button>
+                <button class="nav-btn" data-target="jsonformat">
+                    <i class="fas fa-code"></i> <span>Formatador JSON</span>
+                </button>
+                <button class="nav-btn" data-target="weather">
+                    <i class="fas fa-cloud-sun"></i> <span>Clima</span>
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <span id="app-status">Conectado ao Backend</span>
+            </div>
+        </aside>
+
+        <!-- Área Principal de Conteúdo -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1 id="view-title">To-Do List</h1>
+                <div class="user-info">
+                    <span id="user-display">Visitante</span>
+                </div>
+            </header>
+
+            <section id="content-area">
+                <!-- O conteúdo das ferramentas será injetado aqui -->
+                <div id="loader" class="hidden">Carregando...</div>
+                <div id="view-container"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="services/api.js"></script>
+    <script src="renderer.js"></script>
+</body>
+</html>
