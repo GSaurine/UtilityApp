@@ -97,6 +97,28 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: #95a5a6;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    color: #e74c3c;
+    background-color: #fdedec;
+}
+
 #content-area {
     flex: 1;
     padding: 30px;

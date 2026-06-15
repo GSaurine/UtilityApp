@@ -4,11 +4,21 @@ const BASE_URL = 'http://localhost:3000';
  * Serviço centralizado para comunicação com o Backend
  */
 const ApiService = {
-    // Armazena o token se houver sistema de login no futuro
-    token: null,
+    // Inicializa o token a partir do localStorage para persistência
+    token: localStorage.getItem('auth_token'),
 
     setToken(token) {
         this.token = token;
+        if (token) {
+            localStorage.setItem('auth_token', token);
+        } else {
+            localStorage.removeItem('auth_token');
+        }
+    },
+
+    logout() {
+        this.setToken(null);
+        window.location.reload(); // Recarrega para voltar à tela de login
     },
 
     getHeaders() {

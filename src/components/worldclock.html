@@ -1,0 +1,69 @@
+<div class="worldclock-container">
+    <div class="clock-card" data-timezone="local">
+        <h3>Local</h3>
+        <p class="time">--:--:--</p>
+        <p class="date">--/--/----</p>
+    </div>
+    <div class="clock-card" data-timezone="America/New_York">
+        <h3>Eastern Time (US)</h3>
+        <p class="time">--:--:--</p>
+        <p class="date">--/--/----</p>
+    </div>
+    <div class="clock-card" data-timezone="America/Chicago">
+        <h3>Central Time (US)</h3>
+        <p class="time">--:--:--</p>
+        <p class="date">--/--/----</p>
+    </div>
+    <div class="clock-card" data-timezone="America/Los_Angeles">
+        <h3>Pacific Time (US)</h3>
+        <p class="time">--:--:--</p>
+        <p class="date">--/--/----</p>
+    </div>
+    <div class="clock-card" data-timezone="UTC">
+        <h3>UTC / GMT</h3>
+        <p class="time">--:--:--</p>
+        <p class="date">--/--/----</p>
+    </div>
+    <div class="clock-card" data-timezone="America/Sao_Paulo">
+        <h3>Brasília (BR)</h3>
+        <p class="time">--:--:--</p>
+        <p class="date">--/--/----</p>
+    </div>
+</div>
+
+<style>
+    .worldclock-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .clock-card {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        text-align: center;
+        border-top: 4px solid var(--accent-color);
+    }
+
+    .clock-card h3 {
+        margin-bottom: 15px;
+        color: var(--secondary-color);
+        font-size: 1.1rem;
+    }
+
+    .clock-card .time {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .clock-card .date {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+    }
+</style>

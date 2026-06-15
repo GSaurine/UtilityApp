@@ -4,7 +4,8 @@ const viewTitles = {
     'pomodoro': 'Timer Pomodoro',
     'passgen': 'Gerador de Senhas',
     'jsonformat': 'Formatador JSON',
-    'weather': 'Previsão do Tempo'
+    'weather': 'Previsão do Tempo',
+    'worldclock': 'Relógio Mundial'
 };
 
 // Referências aos elementos do DOM
@@ -13,12 +14,23 @@ const viewTitle = document.getElementById('view-title');
 const viewContainer = document.getElementById('view-container');
 const loader = document.getElementById('loader');
 const authContainer = document.getElementById('auth-container');
+const logoutBtn = document.getElementById('logout-btn');
 
 /**
- * Sistema de Inicialização Forçada com Login
+ * Sistema de Inicialização com Verificação de Token
  */
 async function initApp() {
-    // 1. Carrega a tela de Login obrigatoriamente
+    // 1. Verifica se já existe um token persistido
+    if (window.ApiService.token) {
+        // Tenta recuperar informações básicas ou simplesmente libera a app
+        // Para este trabalho, vamos assumir que o token é válido se existir
+        // Em um cenário real, faríamos um GET /auth/me aqui
+        document.getElementById('app-status').innerText = 'Autenticado (Sessão Salva)';
+        loadView('todo');
+        return;
+    }
+
+    // 2. Se não houver token, carrega a tela de Login obrigatoriamente
     try {
         const response = await fetch('components/auth.html');
         const html = await response.text();
@@ -123,6 +135,13 @@ navButtons.forEach(btn => {
         const target = btn.getAttribute('data-target');
         loadView(target);
     });
+});
+
+// Configura listener para logout
+logoutBtn.addEventListener('click', () => {
+    if (confirm('Deseja realmente sair?')) {
+        window.ApiService.logout();
+    }
 });
 
 // Carrega o sistema de Login ao iniciar
